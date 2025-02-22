@@ -12,6 +12,7 @@ var current_speed = speed
 var drop_pos: Vector2
 var items_in_range: Array = []
 var carrying_item: bool = false
+var near_basket: bool = false
 
 func _ready(): 
 	item_spr.hide()
@@ -60,22 +61,34 @@ func drop_item():
 	item.position = position + drop_pos
 	get_parent().add_child(item)
 	carrying_item = false
+	
+func erase_item():
+	item_spr.hide()
+	carrying_item = false
 
 func _on_pickup_range_area_entered(area: Area2D) -> void:
 	if area.is_in_group("item_drop"):
 		items_in_range.append(area)
 		print(items_in_range)
+	if area.is_in_group("basket"):
+		near_basket = true
+		
 
 
 func _on_pickup_range_area_exited(area: Area2D) -> void:
 	if area.is_in_group("item_drop"):
 		items_in_range.erase(area)
 		print(items_in_range)
+	if area.is_in_group("basket"):
+		near_basket = false
 
 func _input(event):
 	if event.is_action_pressed("interact"):
 		if carrying_item: 
-			drop_item()
+			if near_basket:
+				erase_item()
+			else:
+				drop_item()
 		else:
 			if !items_in_range.is_empty():
 				pickup_item(items_in_range.pick_random())
