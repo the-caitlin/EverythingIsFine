@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://dc5f8uqwfqlhr"]
+[gd_scene load_steps=31 format=4 uid="uid://dc5f8uqwfqlhr"]
 
 [ext_resource type="Texture2D" uid="uid://8vgs2iswiodc" path="res://assets/ApartmentStuff/woodenfloor.png" id="1_acvur"]
 [ext_resource type="Texture2D" uid="uid://un0fbrsg1flu" path="res://assets/ApartmentStuff/floortiles (1).png" id="2_ombsg"]
@@ -11,14 +11,16 @@
 [ext_resource type="Texture2D" uid="uid://dfo3qr2sw1y5v" path="res://assets/ApartmentStuff/Alacenas.png" id="9_hpdh7"]
 [ext_resource type="Texture2D" uid="uid://crb0ljoyyarxl" path="res://assets/ApartmentStuff/Bacha.png" id="10_isnyj"]
 [ext_resource type="Texture2D" uid="uid://qdpimq24fp8e" path="res://assets/ApartmentStuff/Heladera.png" id="11_fw414"]
-[ext_resource type="Texture2D" uid="uid://tohbc41p60q7" path="res://assets/ApartmentStuff/Horno.png" id="12_18mi4"]
 [ext_resource type="Texture2D" uid="uid://cabpl8stlhagf" path="res://assets/ApartmentStuff/t8_0.png" id="13_o5wtv"]
 [ext_resource type="Texture2D" uid="uid://8n2ut2jy1wmo" path="res://assets/ApartmentStuff/Sunrise.png" id="14_uhspm"]
 [ext_resource type="Texture2D" uid="uid://dugabpovwu8yk" path="res://assets/ApartmentStuff/tonal-gray-checkerboard-seamless-repeating-vector-54543375.jpg" id="15_g0vqg"]
 [ext_resource type="Texture2D" uid="uid://dee4ecimo8aqo" path="res://assets/ApartmentStuff/Couch.png" id="16_5oduc"]
 [ext_resource type="PackedScene" uid="uid://cd4brui1vi5on" path="res://scenes/character_body_2d.tscn" id="17_ti2ko"]
 [ext_resource type="PackedScene" uid="uid://bjb4ii47a7nfh" path="res://scenes/itemDrop.tscn" id="18_ec3w0"]
+[ext_resource type="PackedScene" uid="uid://d2wmhqg8wi45x" path="res://scenes/oven.tscn" id="19_5eoqb"]
 [ext_resource type="PackedScene" uid="uid://1nvj6inpyyx4" path="res://scenes/ItemErase.tscn" id="19_dbw3f"]
+[ext_resource type="PackedScene" uid="uid://dj1u23v30cap6" path="res://scenes/pan.tscn" id="20_5eoqb"]
+[ext_resource type="PackedScene" uid="uid://bkalum4wullkm" path="res://scenes/PanDrop.tscn" id="21_pf7t0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iemlq"]
 texture = ExtResource("1_acvur")
@@ -1171,13 +1173,6 @@ position = Vector2(95, 373)
 rotation = -1.5708
 texture = ExtResource("11_fw414")
 
-[node name="Oven" type="Sprite2D" parent="Node2D"]
-z_index = 2
-position = Vector2(110, 569)
-rotation = -1.5708
-scale = Vector2(1.235, 1.235)
-texture = ExtResource("12_18mi4")
-
 [node name="SdieCounter3" type="Sprite2D" parent="Node2D"]
 position = Vector2(108.25, 655.75)
 scale = Vector2(1.52344, 2.26042)
@@ -1185,7 +1180,7 @@ texture = ExtResource("9_hpdh7")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
 position = Vector2(1017, 159)
-scale = Vector2(0.399453, 0.480508)
+scale = Vector2(0.398073, 0.480508)
 texture = ExtResource("13_o5wtv")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Node2D"]
@@ -1216,5 +1211,21 @@ position = Vector2(1142, 181)
 position = Vector2(834, 42)
 scale = Vector2(2.165, 2.165)
 
+[node name="Pan" parent="." instance=ExtResource("20_5eoqb")]
+position = Vector2(365, 394)
+
+[node name="Oven" parent="." instance=ExtResource("19_5eoqb")]
+position = Vector2(111, 567)
+rotation = -1.5708
+scale = Vector2(1.34, 1.34)
+
+[node name="PanDrop" parent="." instance=ExtResource("21_pf7t0")]
+position = Vector2(1865, 274)
+scale = Vector2(0.75, 0.75)
+
 [connection signal="area_entered" from="ItemDrop" to="CharacterBody2D" method="_on_item_drop_area_entered"]
 [connection signal="area_exited" from="ItemDrop" to="CharacterBody2D" method="_on_item_drop_area_exited"]
+[connection signal="area_entered" from="Pan" to="CharacterBody2D" method="_on_pickup_range_area_entered"]
+[connection signal="area_exited" from="Pan" to="CharacterBody2D" method="_on_pickup_range_area_exited"]
+[connection signal="area_entered" from="Oven" to="CharacterBody2D" method="_on_pickup_range_area_entered"]
+[connection signal="area_exited" from="Oven" to="CharacterBody2D" method="_on_pickup_range_area_exited"]
