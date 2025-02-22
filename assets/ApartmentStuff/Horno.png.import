@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://danvoue6ff1y2"
-path="res://.godot/imported/double-blue.png-ad17f3d31a852b313b29b927da2c620e.ctex"
+uid="uid://tohbc41p60q7"
+path="res://.godot/imported/Horno.png-3ff6f6f4778e21cf798678b7b7d083b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/double-blue.png"
-dest_files=["res://.godot/imported/double-blue.png-ad17f3d31a852b313b29b927da2c620e.ctex"]
+source_file="res://assets/ApartmentStuff/Horno.png"
+dest_files=["res://.godot/imported/Horno.png-3ff6f6f4778e21cf798678b7b7d083b6.ctex"]
 
 [params]
 

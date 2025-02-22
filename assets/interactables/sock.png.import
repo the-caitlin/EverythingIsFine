@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch324gq7gn08x"
-path="res://.godot/imported/desk.png-47c441e9ad05fb6a016ffa429440318e.ctex"
+uid="uid://bipquh6yjm4v"
+path="res://.godot/imported/sock.png-f53abdf0e032d693b8476f63fed98374.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/desk.png"
-dest_files=["res://.godot/imported/desk.png-47c441e9ad05fb6a016ffa429440318e.ctex"]
+source_file="res://assets/interactables/sock.png"
+dest_files=["res://.godot/imported/sock.png-f53abdf0e032d693b8476f63fed98374.ctex"]
 
 [params]
 

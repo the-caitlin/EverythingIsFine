@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sg6sa85haxox"
-path="res://.godot/imported/Microondas.png-8de5862f7a3ec0f7efee57756a9bbb26.ctex"
+uid="uid://bd23whdrxsj7"
+path="res://.godot/imported/wardrobe.png-53d1ea02dbaeee56241a5bd445671409.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Microondas.png"
-dest_files=["res://.godot/imported/Microondas.png-8de5862f7a3ec0f7efee57756a9bbb26.ctex"]
+source_file="res://assets/ApartmentStuff/wardrobe.png"
+dest_files=["res://.godot/imported/wardrobe.png-53d1ea02dbaeee56241a5bd445671409.ctex"]
 
 [params]
 

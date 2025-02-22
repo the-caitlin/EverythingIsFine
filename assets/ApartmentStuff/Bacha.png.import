@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5q1qycqhhf6o"
-path="res://.godot/imported/double-pink_roses.png-3f5ba4e45aae58e8a6a2f3f0564d0b58.ctex"
+uid="uid://crb0ljoyyarxl"
+path="res://.godot/imported/Bacha.png-e720bb6b544ce87e9807ba33f6cf251a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/double-pink_roses.png"
-dest_files=["res://.godot/imported/double-pink_roses.png-3f5ba4e45aae58e8a6a2f3f0564d0b58.ctex"]
+source_file="res://assets/ApartmentStuff/Bacha.png"
+dest_files=["res://.godot/imported/Bacha.png-e720bb6b544ce87e9807ba33f6cf251a.ctex"]
 
 [params]
 

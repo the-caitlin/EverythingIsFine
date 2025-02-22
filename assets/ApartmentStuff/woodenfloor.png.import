@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dugabpovwu8yk"
-path="res://.godot/imported/tonal-gray-checkerboard-seamless-repeating-vector-54543375.jpg-217f8ae5d5758da98c69ccc306131025.ctex"
+uid="uid://8vgs2iswiodc"
+path="res://.godot/imported/woodenfloor.png-2b76311209982a5a0b320ed979c16e93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tonal-gray-checkerboard-seamless-repeating-vector-54543375.jpg"
-dest_files=["res://.godot/imported/tonal-gray-checkerboard-seamless-repeating-vector-54543375.jpg-217f8ae5d5758da98c69ccc306131025.ctex"]
+source_file="res://assets/ApartmentStuff/woodenfloor.png"
+dest_files=["res://.godot/imported/woodenfloor.png-2b76311209982a5a0b320ed979c16e93.ctex"]
 
 [params]
 

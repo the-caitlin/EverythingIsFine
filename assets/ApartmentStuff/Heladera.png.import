@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dee4ecimo8aqo"
-path="res://.godot/imported/Couch.png-b30f9783b5478f26a3b87e2715dee433.ctex"
+uid="uid://qdpimq24fp8e"
+path="res://.godot/imported/Heladera.png-b15e62dac76730342ec15cdd36ae289f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Couch.png"
-dest_files=["res://.godot/imported/Couch.png-b30f9783b5478f26a3b87e2715dee433.ctex"]
+source_file="res://assets/ApartmentStuff/Heladera.png"
+dest_files=["res://.godot/imported/Heladera.png-b15e62dac76730342ec15cdd36ae289f.ctex"]
 
 [params]
 

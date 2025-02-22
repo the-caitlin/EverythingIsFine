@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cainyj3k8duyk"
-path="res://.godot/imported/bathSink.png-c5ebe68d94a119fefbe48b751440264c.ctex"
+uid="uid://5q1qycqhhf6o"
+path="res://.godot/imported/double-pink_roses.png-94e467f3df596103425ae31b26b3ade0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bathSink.png"
-dest_files=["res://.godot/imported/bathSink.png-c5ebe68d94a119fefbe48b751440264c.ctex"]
+source_file="res://assets/ApartmentStuff/double-pink_roses.png"
+dest_files=["res://.godot/imported/double-pink_roses.png-94e467f3df596103425ae31b26b3ade0.ctex"]
 
 [params]
 

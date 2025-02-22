@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv0pvjkxcorld"
-path="res://.godot/imported/pc.png-64d8cff9cefc2f90f28e26963c9eb6cf.ctex"
+uid="uid://5yambcvol8k2"
+path="res://.godot/imported/drawers.png-9bd8afc2cbf0ce82b39bd8ba76c5ffa6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pc.png"
-dest_files=["res://.godot/imported/pc.png-64d8cff9cefc2f90f28e26963c9eb6cf.ctex"]
+source_file="res://assets/ApartmentStuff/drawers.png"
+dest_files=["res://.godot/imported/drawers.png-9bd8afc2cbf0ce82b39bd8ba76c5ffa6.ctex"]
 
 [params]
 
