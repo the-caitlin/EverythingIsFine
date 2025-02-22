@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://dc5f8uqwfqlhr"]
+[gd_scene load_steps=32 format=4 uid="uid://dc5f8uqwfqlhr"]
 
 [ext_resource type="Texture2D" uid="uid://8vgs2iswiodc" path="res://assets/ApartmentStuff/woodenfloor.png" id="1_acvur"]
 [ext_resource type="Texture2D" uid="uid://un0fbrsg1flu" path="res://assets/ApartmentStuff/floortiles (1).png" id="2_ombsg"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://bqnngch4niiej" path="res://assets/ApartmentStuff/Mesada der.png" id="8_ryq7f"]
 [ext_resource type="Texture2D" uid="uid://dfo3qr2sw1y5v" path="res://assets/ApartmentStuff/Alacenas.png" id="9_hpdh7"]
 [ext_resource type="Texture2D" uid="uid://crb0ljoyyarxl" path="res://assets/ApartmentStuff/Bacha.png" id="10_isnyj"]
-[ext_resource type="Texture2D" uid="uid://qdpimq24fp8e" path="res://assets/ApartmentStuff/Heladera.png" id="11_fw414"]
 [ext_resource type="Texture2D" uid="uid://cabpl8stlhagf" path="res://assets/ApartmentStuff/t8_0.png" id="13_o5wtv"]
 [ext_resource type="Texture2D" uid="uid://8n2ut2jy1wmo" path="res://assets/ApartmentStuff/Sunrise.png" id="14_uhspm"]
 [ext_resource type="Texture2D" uid="uid://dugabpovwu8yk" path="res://assets/ApartmentStuff/tonal-gray-checkerboard-seamless-repeating-vector-54543375.jpg" id="15_g0vqg"]
@@ -20,7 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://d2wmhqg8wi45x" path="res://scenes/oven.tscn" id="19_5eoqb"]
 [ext_resource type="PackedScene" uid="uid://1nvj6inpyyx4" path="res://scenes/ItemErase.tscn" id="19_dbw3f"]
 [ext_resource type="PackedScene" uid="uid://dj1u23v30cap6" path="res://scenes/pan.tscn" id="20_5eoqb"]
+[ext_resource type="PackedScene" uid="uid://cptroa1r00c1k" path="res://scenes/fridge.tscn" id="21_anoxf"]
 [ext_resource type="PackedScene" uid="uid://bkalum4wullkm" path="res://scenes/PanDrop.tscn" id="21_pf7t0"]
+[ext_resource type="PackedScene" uid="uid://ch2s42sld2xnx" path="res://scenes/plateDrop.tscn" id="22_anoxf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iemlq"]
 texture = ExtResource("1_acvur")
@@ -1096,6 +1097,7 @@ tile_map_data = PackedByteArray("AAAbAAAAAQAAAAAAAAAbAAEAAQAAAAAAAAAbAAIAAQAAAAA
 tile_set = SubResource("TileSet_ujb1r")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("17_ti2ko")]
+z_index = 2
 position = Vector2(1074, 182)
 scale = Vector2(0.285, 0.285)
 
@@ -1167,12 +1169,6 @@ position = Vector2(105, 438)
 rotation = -1.5708
 texture = ExtResource("10_isnyj")
 
-[node name="Fridge" type="Sprite2D" parent="Node2D"]
-z_index = 1
-position = Vector2(95, 373)
-rotation = -1.5708
-texture = ExtResource("11_fw414")
-
 [node name="SdieCounter3" type="Sprite2D" parent="Node2D"]
 position = Vector2(108.25, 655.75)
 scale = Vector2(1.52344, 2.26042)
@@ -1223,9 +1219,19 @@ scale = Vector2(1.34, 1.34)
 position = Vector2(1865, 274)
 scale = Vector2(0.75, 0.75)
 
+[node name="Fridge" parent="." instance=ExtResource("21_anoxf")]
+z_index = 1
+position = Vector2(99, 374)
+rotation = -1.5708
+
+[node name="PlateDrop" parent="." instance=ExtResource("22_anoxf")]
+scale = Vector2(0.17, 0.17)
+
 [connection signal="area_entered" from="ItemDrop" to="CharacterBody2D" method="_on_item_drop_area_entered"]
 [connection signal="area_exited" from="ItemDrop" to="CharacterBody2D" method="_on_item_drop_area_exited"]
 [connection signal="area_entered" from="Pan" to="CharacterBody2D" method="_on_pickup_range_area_entered"]
 [connection signal="area_exited" from="Pan" to="CharacterBody2D" method="_on_pickup_range_area_exited"]
 [connection signal="area_entered" from="Oven" to="CharacterBody2D" method="_on_pickup_range_area_entered"]
 [connection signal="area_exited" from="Oven" to="CharacterBody2D" method="_on_pickup_range_area_exited"]
+[connection signal="area_entered" from="Fridge" to="CharacterBody2D" method="_on_pickup_range_area_entered"]
+[connection signal="area_exited" from="Fridge" to="CharacterBody2D" method="_on_pickup_range_area_exited"]
