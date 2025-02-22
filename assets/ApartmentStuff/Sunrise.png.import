@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cabpl8stlhagf"
-path="res://.godot/imported/t8_0.png-2b518da4754d6c49c2ff25eff2502251.ctex"
+uid="uid://8n2ut2jy1wmo"
+path="res://.godot/imported/Sunrise.png-5430cc977985a053b277e5eabd809510.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/t8_0.png"
-dest_files=["res://.godot/imported/t8_0.png-2b518da4754d6c49c2ff25eff2502251.ctex"]
+source_file="res://assets/ApartmentStuff/Sunrise.png"
+dest_files=["res://.godot/imported/Sunrise.png-5430cc977985a053b277e5eabd809510.ctex"]
 
 [params]
 

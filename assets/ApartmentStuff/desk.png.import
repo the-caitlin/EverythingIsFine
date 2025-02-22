@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwsghpxcraqaf"
-path="res://.godot/imported/Mesada dobla.png-22931e1e4cbe37ea7ba730bc4db76113.ctex"
+uid="uid://ch324gq7gn08x"
+path="res://.godot/imported/desk.png-998a6e4f8223ea8986d7fc8eaddad95c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Mesada dobla.png"
-dest_files=["res://.godot/imported/Mesada dobla.png-22931e1e4cbe37ea7ba730bc4db76113.ctex"]
+source_file="res://assets/ApartmentStuff/desk.png"
+dest_files=["res://.godot/imported/desk.png-998a6e4f8223ea8986d7fc8eaddad95c.ctex"]
 
 [params]
 

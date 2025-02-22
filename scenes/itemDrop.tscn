@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjb4ii47a7nfh"]
+
+[ext_resource type="Texture2D" uid="uid://bipquh6yjm4v" path="res://assets/interactables/sock.png" id="1_xs6nt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6q4oc"]
+
+[node name="ItemDrop" type="Area2D" groups=["item_drop"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+scale = Vector2(1.665, 1.665)
+shape = SubResource("CircleShape2D_6q4oc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("1_xs6nt")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqnngch4niiej"
-path="res://.godot/imported/Mesada der.png-78d0e8e4ebefee682d932c80b1aadd44.ctex"
+uid="uid://dfo3qr2sw1y5v"
+path="res://.godot/imported/Alacenas.png-006a3264dd6e547f6ff2fdf12cac5a44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Mesada der.png"
-dest_files=["res://.godot/imported/Mesada der.png-78d0e8e4ebefee682d932c80b1aadd44.ctex"]
+source_file="res://assets/ApartmentStuff/Alacenas.png"
+dest_files=["res://.godot/imported/Alacenas.png-006a3264dd6e547f6ff2fdf12cac5a44.ctex"]
 
 [params]
 

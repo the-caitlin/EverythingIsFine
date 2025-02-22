@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8vgs2iswiodc"
-path="res://.godot/imported/woodenfloor.png-e5bd414a4f012c708063d2db8bb4260a.ctex"
+uid="uid://cainyj3k8duyk"
+path="res://.godot/imported/bathSink.png-421df454af8873eab7e2aacbe42407d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/woodenfloor.png"
-dest_files=["res://.godot/imported/woodenfloor.png-e5bd414a4f012c708063d2db8bb4260a.ctex"]
+source_file="res://assets/ApartmentStuff/bathSink.png"
+dest_files=["res://.godot/imported/bathSink.png-421df454af8873eab7e2aacbe42407d3.ctex"]
 
 [params]
 

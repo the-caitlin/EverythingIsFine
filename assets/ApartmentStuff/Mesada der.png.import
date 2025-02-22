@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5yambcvol8k2"
-path="res://.godot/imported/drawers.png-d65f803f1106e8e5a5438b8bc5af336d.ctex"
+uid="uid://bqnngch4niiej"
+path="res://.godot/imported/Mesada der.png-a03e48abe32ad7dd51198a478e5b2c14.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/drawers.png"
-dest_files=["res://.godot/imported/drawers.png-d65f803f1106e8e5a5438b8bc5af336d.ctex"]
+source_file="res://assets/ApartmentStuff/Mesada der.png"
+dest_files=["res://.godot/imported/Mesada der.png-a03e48abe32ad7dd51198a478e5b2c14.ctex"]
 
 [params]
 
