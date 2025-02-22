@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj1u23v30cap6"]
+
+[ext_resource type="Texture2D" uid="uid://bdbbl16avqd8n" path="res://assets/interactables/pan.png" id="1_siqbj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bkvwt"]
+
+[node name="Pan" type="Area2D" groups=["item_pan"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.985, 1.985)
+shape = SubResource("CapsuleShape2D_bkvwt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.23, 0.23)
+texture = ExtResource("1_siqbj")
