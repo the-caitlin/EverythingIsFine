@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://dc5f8uqwfqlhr"]
+[gd_scene load_steps=29 format=4 uid="uid://dc5f8uqwfqlhr"]
 
 [ext_resource type="Texture2D" uid="uid://8vgs2iswiodc" path="res://assets/ApartmentStuff/woodenfloor.png" id="1_acvur"]
 [ext_resource type="Texture2D" uid="uid://un0fbrsg1flu" path="res://assets/ApartmentStuff/floortiles (1).png" id="2_ombsg"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://dee4ecimo8aqo" path="res://assets/ApartmentStuff/Couch.png" id="16_5oduc"]
 [ext_resource type="PackedScene" uid="uid://cd4brui1vi5on" path="res://scenes/character_body_2d.tscn" id="17_ti2ko"]
 [ext_resource type="PackedScene" uid="uid://bjb4ii47a7nfh" path="res://scenes/itemDrop.tscn" id="18_ec3w0"]
+[ext_resource type="PackedScene" uid="uid://1nvj6inpyyx4" path="res://scenes/ItemErase.tscn" id="19_dbw3f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iemlq"]
 texture = ExtResource("1_acvur")
@@ -1094,6 +1095,7 @@ tile_set = SubResource("TileSet_ujb1r")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("17_ti2ko")]
 position = Vector2(1074, 182)
+scale = Vector2(0.285, 0.285)
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -1209,6 +1211,10 @@ texture = ExtResource("16_5oduc")
 [node name="ItemDrop" parent="." instance=ExtResource("18_ec3w0")]
 z_index = 1
 position = Vector2(1142, 181)
+
+[node name="ItemErase" parent="." instance=ExtResource("19_dbw3f")]
+position = Vector2(834, 42)
+scale = Vector2(2.165, 2.165)
 
 [connection signal="area_entered" from="ItemDrop" to="CharacterBody2D" method="_on_item_drop_area_entered"]
 [connection signal="area_exited" from="ItemDrop" to="CharacterBody2D" method="_on_item_drop_area_exited"]
