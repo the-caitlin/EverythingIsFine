@@ -43,5 +43,15 @@ text = "Quit
 "
 icon_alignment = 1
 
+[node name="Controls" type="Button" parent="."]
+z_index = 6
+layout_mode = 0
+offset_left = 1130.0
+offset_top = 1134.0
+offset_right = 1381.0
+offset_bottom = 1259.0
+text = "Controls"
+
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Controls" to="." method="_on_controls_pressed"]

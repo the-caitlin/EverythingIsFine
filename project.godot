@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Everything Is Fine"
-run/main_scene="res://scenes/university.tscn"
+run/main_scene="uid://dn1vq0xe1aqrk"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 

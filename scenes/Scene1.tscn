@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=4 uid="uid://dc5f8uqwfqlhr"]
+[gd_scene load_steps=73 format=4 uid="uid://dc5f8uqwfqlhr"]
 
 [ext_resource type="Texture2D" uid="uid://8vgs2iswiodc" path="res://assets/ApartmentStuff/woodenfloor.png" id="1_acvur"]
 [ext_resource type="Texture2D" uid="uid://un0fbrsg1flu" path="res://assets/ApartmentStuff/floortiles (1).png" id="2_ombsg"]
@@ -44,6 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://ccjvedu6rmiwa" path="res://assets/RetroFurniture/multirug.png" id="42_n1dab"]
 [ext_resource type="PackedScene" uid="uid://c8nxitfp2m3b1" path="res://scenes/table.tscn" id="43_n1dab"]
 [ext_resource type="PackedScene" uid="uid://b8jqi1fm0nwbu" path="res://scenes/exitDoor.tscn" id="44_u6w62"]
+[ext_resource type="Texture2D" uid="uid://d3214ch68q0oi" path="res://assets/interactables/capybara.png" id="45_kcmh1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iemlq"]
 texture = ExtResource("1_acvur")
@@ -1570,7 +1571,7 @@ position = Vector2(390, 409)
 scale = Vector2(1.61, 1.61)
 
 [node name="DogFood" parent="." instance=ExtResource("26_o4vcr")]
-position = Vector2(195, 622)
+position = Vector2(266, 619)
 scale = Vector2(1.555, 1.555)
 
 [node name="MoreFurniture" type="Node2D" parent="."]
@@ -1630,7 +1631,7 @@ scale = Vector2(2.035, 2.035)
 shape = SubResource("RectangleShape2D_gekr3")
 
 [node name="Sprite2D" type="Sprite2D" parent="MoreFurniture/TV"]
-z_index = 1
+z_index = 6
 position = Vector2(-0.982771, -12.7764)
 texture = ExtResource("29_5jij5")
 
@@ -1822,6 +1823,12 @@ scale = Vector2(0.42, 0.34)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1177, 409)
 shape = SubResource("RectangleShape2D_u6w62")
+
+[node name="Cappybara" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(223, 615)
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("45_kcmh1")
 
 [connection signal="area_entered" from="Pan" to="CharacterBody2D" method="_on_pickup_range_area_entered"]
 [connection signal="area_exited" from="Pan" to="CharacterBody2D" method="_on_pickup_range_area_exited"]
