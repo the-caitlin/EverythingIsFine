@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8jqi1fm0nwbu"]
+
+[ext_resource type="Texture2D" uid="uid://dngcb14l2d3ym" path="res://assets/interactables/door.webp" id="1_u6c61"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqtkp"]
+size = Vector2(268, 76)
+
+[node name="ExitDoor" type="Area2D" groups=["exit_door"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["exit_door"]]
+position = Vector2(8.00001, 0)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_lqtkp")
+
+[node name="Sprite2D" type="Polygon2D" parent="."]
+texture_repeat = 2
+position = Vector2(5.5, -0.5)
+rotation = 1.5708
+scale = Vector2(0.988281, 0.175781)
+texture = ExtResource("1_u6c61")
+texture_scale = Vector2(2.84, 1)
+polygon = PackedVector2Array(-128, -128, -128, 128, 128, 128, 128, -128)
+uv = PackedVector2Array(0, 0, 0, 256, 256, 256, 256, 0)
+polygons = [PackedInt32Array(0, 1, 2, 3)]

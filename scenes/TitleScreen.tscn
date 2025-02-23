@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn1vq0xe1aqrk"]
+
+[ext_resource type="Script" uid="uid://bln01lf2fg3f8" path="res://scenes/title_screen.gd" id="1_ch40n"]
+[ext_resource type="Texture2D" uid="uid://cb1aigfa6e261" path="res://assets/interactables/EverythingIsFineTitle.png" id="1_qyuap"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ch40n")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -5.0
+offset_bottom = -2.8125
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qyuap")
+expand_mode = 5
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1131.0
+offset_top = 874.0
+offset_right = 1378.0
+offset_bottom = 979.0
+text = "Play"
+icon_alignment = 1
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1131.0
+offset_top = 1003.0
+offset_right = 1381.0
+offset_bottom = 1116.0
+text = "Quit
+"
+icon_alignment = 1
+
+[node name="Controls" type="Button" parent="."]
+z_index = 6
+layout_mode = 0
+offset_left = 1130.0
+offset_top = 1134.0
+offset_right = 1381.0
+offset_bottom = 1259.0
+text = "Controls"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Controls" to="." method="_on_controls_pressed"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b35wvxjg7p1k7"]
+
+[ext_resource type="Texture2D" uid="uid://b7wvadpgnoedv" path="res://assets/interactables/Bowl_filled.png" id="1_usc1a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xwxh8"]
+
+[node name="DogBowlFilled" type="Area2D" groups=["dog_bowl_filled"]]
+z_index = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2)
+shape = SubResource("CircleShape2D_xwxh8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_usc1a")

@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://de6flk0u5h0y5"]
+
+[ext_resource type="Script" uid="uid://cfh5nmqoaqpmr" path="res://scenes/control_screen.gd" id="1_20g4c"]
+[ext_resource type="Texture2D" uid="uid://dj82ikh6xnl8g" path="res://assets/interactables/2.png" id="2_srdiv"]
+
+[node name="ControlScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_20g4c")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 1925.0
+offset_bottom = 1084.0
+scale = Vector2(1.415, 1.415)
+texture = ExtResource("2_srdiv")
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1873.0
+offset_top = 1008.0
+offset_right = 2148.0
+offset_bottom = 1150.0
+text = "Back"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
