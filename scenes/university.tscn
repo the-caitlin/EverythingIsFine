@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=3 uid="uid://c00563677o8mr"]
 
 [ext_resource type="Texture2D" uid="uid://c0jvfm8kaq6s0" path="res://assets/tilemaps/Tilemap/tilemap_packed.png" id="1_0q2qk"]
-[ext_resource type="Shader" path="res://shader/shockwave.gdshader" id="1_4h3nl"]
+[ext_resource type="Shader" uid="uid://dynog4m74uql2" path="res://shader/shockwave.gdshader" id="1_4h3nl"]
 [ext_resource type="Texture2D" uid="uid://8kftrgyycpn2" path="res://assets/tilemaps/Tilemap/tilemap.png" id="2_ewho2"]
-[ext_resource type="PackedScene" uid="uid://cd4brui1vi5on" path="res://characters/character_body_2d.tscn" id="3_uwdw7"]
-[ext_resource type="PackedScene" path="res://characters/signs/sign.tscn" id="4_j76x3"]
+[ext_resource type="PackedScene" uid="uid://cd4brui1vi5on" path="res://scenes/character_body_2d.tscn" id="3_uwdw7"]
+[ext_resource type="PackedScene" uid="uid://dsl1wvnv3nw67" path="res://characters/signs/sign.tscn" id="4_j76x3"]
 [ext_resource type="PackedScene" uid="uid://dhe3o0as8a3s8" path="res://characters/signs/sign_2.tscn" id="5_bjxk8"]
 [ext_resource type="PackedScene" uid="uid://cb3iccbavdp3g" path="res://characters/signs/sign_3.tscn" id="6_8juf4"]
 [ext_resource type="PackedScene" uid="uid://ccshcq1512ai8" path="res://characters/signs/hobby_sign.tscn" id="7_abi2y"]

@@ -178,7 +178,7 @@ func drop_food():
 	
 func exit_sequence():
 	item_backpack.show()
-	get_tree().change_scene_to_file("res://scenes/apartment.tscn")
+	get_tree().change_scene_to_file("res://scenes/university.tscn")
 
 func _on_pickup_range_area_entered(area: Area2D) -> void:
 	if area.is_in_group("item_drop"):
@@ -189,6 +189,7 @@ func _on_pickup_range_area_entered(area: Area2D) -> void:
 		near_basket = true
 	if area.is_in_group("item_pan"):
 		items_in_range.append(area)
+		
 		print(items_in_range)
 		near_pan = true
 	if area.is_in_group("oven"):
