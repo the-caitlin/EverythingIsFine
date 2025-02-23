@@ -3,7 +3,7 @@ extends CharacterBody2D
 #references
 @onready var item_drop = load("res://scenes/itemDrop.tscn")
 @onready var item_plate_drop = load("res://scenes/plateDrop.tscn")
-@onready var pan_drop = load("res://scenes/pan.tscn")
+@onready var pan_drop = load("res://scenes/PanDrop.tscn")
 @onready var dog_bowl_filled = load("res://scenes/DogBowlFilled.tscn")
 @onready var dog_food_drop = load("res://scenes/DogFoodDrop.tscn")
 
@@ -12,12 +12,13 @@ extends CharacterBody2D
 @onready var item_egg = $item_egg
 @onready var item_dog_food = $item_dog_food
 @onready var item_plate = $item_plate
+@onready var item_backpack = $item_backpack
 
 @onready var sprite = $AnimatedSprite2D
 @onready var oven = $oven
 
 @onready var dog_bowl = $dog_bowl
-
+@onready var exit_door = $exit_door
 
 
 var speed = 100.0
@@ -34,9 +35,11 @@ var near_oven: bool = false
 var near_fridge: bool = false
 var pan_on_oven: bool = false
 var near_dog_bowl: bool = false
-var near_dog_food = false
-var near_plate = false
-var near_sock = false
+var near_dog_food: bool = false
+var near_plate: bool = false
+var near_sock: bool = false
+var near_table: bool = false
+var near_exit_door: bool = false
 
 var carrying_sock: bool = false
 var carrying_pan: bool = false
@@ -44,13 +47,19 @@ var carrying_dog_food: bool = false
 var carrying_plate: bool = false
 var carrying_egg: bool = false 
 
+var has_filled_bowl: bool = false
+var has_putaway_socks: bool = false 
+var has_eaten_eggs: bool = false 
+var socks_putaway: int = 0
+
+
 func _ready(): 
 	item_spr.hide()
 	item_pan.hide()
 	item_egg.hide()
 	item_plate.hide()
 	item_dog_food.hide()
-	
+	item_backpack.hide()
 
 func _physics_process(_delta):
 	# Get direction based on input
@@ -93,10 +102,6 @@ func pickup_item(item: Area2D):
 		item.queue_free()
 		carrying_sock = true
 		item_spr.show()
-	elif near_plate:
-		item.queue_free()
-		carrying_plate = true
-		item_plate.show()
 	elif near_dog_food:
 		item.queue_free()
 		carrying_dog_food = true
@@ -108,6 +113,7 @@ func pickup_item(item: Area2D):
 		filled_bowl.position = Vector2(390, 409)
 		filled_bowl.scale = Vector2(1.61, 1.61)
 		get_parent().add_child(filled_bowl)
+		has_filled_bowl = true
 	items_in_range.erase(item)
 		
 func drop_item():
@@ -120,6 +126,11 @@ func drop_item():
 func erase_item():
 	item_spr.hide()
 	carrying_sock = false
+	socks_putaway += 1
+	print(socks_putaway)
+	if socks_putaway > 6:
+		has_putaway_socks = true 
+		print("has putaway socks")
 	
 func erase_egg():
 	item_egg.hide()
@@ -137,21 +148,20 @@ func place_pan():
 	pan_on_oven = true
 	var pan = pan_drop.instantiate()
 	pan.position = Vector2(89, 557)
+	pan.scale = Vector2(.75, .75)
 	pan.rotate(-90)
 	get_parent().add_child(pan)
 	
 func place_plate(): 
 	item_plate.hide()
-	var plate = item_plate_drop.instantiate()
-	plate.position = position + drop_pos
-	plate.scale = Vector2(.17, .17)
-	get_parent().add_child(plate)
 	carrying_plate = false
-	
-func fill_bowl():
-	dog_bowl.queue_free()
-	near_dog_bowl = false
-	var filled_bowl = dog_bowl_filled.instantiate() 
+	near_table = false
+	var plate = item_plate_drop.instantiate()
+	plate.position = Vector2(551, 470)
+	plate.scale = Vector2(.15, .15)
+	has_eaten_eggs = true
+	print("has eaten eggs")
+	get_parent().add_child(plate)
 	
 func drop_food(): 
 	item_dog_food.hide()
@@ -160,6 +170,9 @@ func drop_food():
 	dog_food.position = position + drop_pos
 	get_parent().add_child(dog_food)
 	
+func exit_sequence():
+	item_backpack.show()
+	get_tree().change_scene_to_file("res://scenes/apartment.tscn")
 
 func _on_pickup_range_area_entered(area: Area2D) -> void:
 	if area.is_in_group("item_drop"):
@@ -184,6 +197,10 @@ func _on_pickup_range_area_entered(area: Area2D) -> void:
 	if area.is_in_group("dog_food"):
 		near_dog_food = true 
 		items_in_range.append(area)
+	if area.is_in_group("table"):
+		near_table = true 
+	if area.is_in_group("exit_door"):
+		near_exit_door = true
 		
 
 func _on_pickup_range_area_exited(area: Area2D) -> void:
@@ -208,6 +225,11 @@ func _on_pickup_range_area_exited(area: Area2D) -> void:
 	if area.is_in_group("dog_food"):
 		near_dog_food = false
 		items_in_range.erase(area)
+	if area.is_in_group("table"):
+		near_table = false 
+	if area.is_in_group("exit_door"):
+		near_exit_door = false
+	
 
 func _input(event):
 	if event.is_action_pressed("interact"):
@@ -228,13 +250,19 @@ func _input(event):
 					cook_egg()
 			elif carrying_pan:
 				place_pan()
-		elif carrying_plate: 
-			place_plate()
+		elif near_table:
+			if carrying_plate:
+				place_plate()
 		elif carrying_dog_food: 
 			if near_dog_bowl:
 				pickup_item(items_in_range.pick_random())
 			else:
 				drop_food()
+		elif near_exit_door:
+			print("trying to exit")
+			if has_putaway_socks and has_eaten_eggs and has_filled_bowl:
+				print("exiting")
+				exit_sequence()
 		else:
 			if !items_in_range.is_empty():
 				pickup_item(items_in_range.pick_random())

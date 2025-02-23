@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://cd4brui1vi5on"]
+[gd_scene load_steps=48 format=3 uid="uid://cd4brui1vi5on"]
 
 [ext_resource type="Script" uid="uid://8jbrm3bws6va" path="res://scenes/character_body_2d.gd" id="1_pft0a"]
 [ext_resource type="Texture2D" uid="uid://nq5qibf5ybsa" path="res://assets/sprites/characters/player.png" id="2_xu1v0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://kngj4d46a0u3" path="res://assets/interactables/egg (2).png" id="5_ws0vm"]
 [ext_resource type="Texture2D" uid="uid://bs0hkn5b2l0na" path="res://assets/interactables/plate_with_egg.png" id="6_rhr3r"]
 [ext_resource type="Texture2D" uid="uid://fgtcp3defoam" path="res://assets/interactables/dogFood.png" id="7_t53lx"]
+[ext_resource type="Texture2D" uid="uid://dafksf6vlit02" path="res://assets/interactables/Backpack.png" id="8_yi2kj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e1e3n"]
 atlas = ExtResource("2_xu1v0")
@@ -363,6 +364,12 @@ z_index = 5
 position = Vector2(-70, 30)
 scale = Vector2(3.845, 3.845)
 texture = ExtResource("7_t53lx")
+
+[node name="item_backpack" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(-60, 30)
+scale = Vector2(5.51, 5.51)
+texture = ExtResource("8_yi2kj")
 
 [connection signal="area_entered" from="pickup_range" to="." method="_on_pickup_range_area_entered"]
 [connection signal="area_exited" from="pickup_range" to="." method="_on_pickup_range_area_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=4 uid="uid://dc5f8uqwfqlhr"]
+[gd_scene load_steps=72 format=4 uid="uid://dc5f8uqwfqlhr"]
 
 [ext_resource type="Texture2D" uid="uid://8vgs2iswiodc" path="res://assets/ApartmentStuff/woodenfloor.png" id="1_acvur"]
 [ext_resource type="Texture2D" uid="uid://un0fbrsg1flu" path="res://assets/ApartmentStuff/floortiles (1).png" id="2_ombsg"]
@@ -38,11 +38,12 @@
 [ext_resource type="Texture2D" uid="uid://cpye4gcjr5qmm" path="res://assets/RetroFurniture/bedTable.png" id="36_mkh7p"]
 [ext_resource type="Texture2D" uid="uid://cbolmw6xd1g3" path="res://assets/RetroFurniture/drawers3.png" id="37_jxft2"]
 [ext_resource type="Texture2D" uid="uid://dclta3emhk5nk" path="res://assets/RetroFurniture/sideDrobe.png" id="38_n1qed"]
-[ext_resource type="Texture2D" uid="uid://b02vq6cw4fikb" path="res://assets/RetroFurniture/tablefr.png" id="39_jxft2"]
 [ext_resource type="Texture2D" uid="uid://dkjsblnaq3ukq" path="res://assets/ApartmentStuff/duck.png" id="40_inr50"]
 [ext_resource type="Texture2D" uid="uid://cp2e463xg06um" path="res://assets/RetroFurniture/dchair2.png" id="40_n1qed"]
 [ext_resource type="Texture2D" uid="uid://coiuw6uvrkbm3" path="res://assets/RetroFurniture/rug4.png" id="41_n1dab"]
 [ext_resource type="Texture2D" uid="uid://ccjvedu6rmiwa" path="res://assets/RetroFurniture/multirug.png" id="42_n1dab"]
+[ext_resource type="PackedScene" uid="uid://c8nxitfp2m3b1" path="res://scenes/table.tscn" id="43_n1dab"]
+[ext_resource type="PackedScene" uid="uid://b8jqi1fm0nwbu" path="res://scenes/exitDoor.tscn" id="44_u6w62"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iemlq"]
 texture = ExtResource("1_acvur")
@@ -1391,8 +1392,8 @@ size = Vector2(13.2374, 12.1583)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n1dab"]
 size = Vector2(30.0873, 14.3668)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1qed"]
-size = Vector2(12.5862, 43.1035)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6w62"]
+size = Vector2(16, 101)
 
 [node name="Apartment" type="Node2D"]
 
@@ -1568,7 +1569,7 @@ scale = Vector2(1.61, 1.61)
 position = Vector2(390, 409)
 scale = Vector2(1.61, 1.61)
 
-[node name="DogFood" parent="." groups=["dog_food"] instance=ExtResource("26_o4vcr")]
+[node name="DogFood" parent="." instance=ExtResource("26_o4vcr")]
 position = Vector2(195, 622)
 scale = Vector2(1.555, 1.555)
 
@@ -1668,7 +1669,6 @@ scale = Vector2(2.715, 2.715)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MoreFurniture/Sink"]
 position = Vector2(248.25, 17.6796)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_jxft2")
 
 [node name="Sprite2D" type="Sprite2D" parent="MoreFurniture/Sink"]
@@ -1730,24 +1730,8 @@ position = Vector2(1156, 224)
 scale = Vector2(2.63, 2.63)
 texture = ExtResource("38_n1qed")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="MoreFurniture"]
-scale = Vector2(2.9, 2.9)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MoreFurniture/StaticBody2D3"]
-position = Vector2(190.948, 172.586)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_n1qed")
-
-[node name="Sprite2D" type="Sprite2D" parent="MoreFurniture/StaticBody2D3"]
-z_index = 1
-position = Vector2(189.31, 172.069)
-rotation = 4.71239
-scale = Vector2(1.15, 1.15)
-texture = ExtResource("39_jxft2")
-flip_v = true
-
 [node name="chiar" type="Sprite2D" parent="MoreFurniture"]
-position = Vector2(497, 451)
+position = Vector2(476, 464)
 scale = Vector2(3.075, 2.88611)
 texture = ExtResource("40_n1qed")
 
@@ -1824,6 +1808,21 @@ z_index = 1
 position = Vector2(1084, 272)
 rotation = 1.64934
 
+[node name="Table" parent="." groups=["table"] instance=ExtResource("43_n1dab")]
+z_index = 1
+position = Vector2(551, 492)
+scale = Vector2(3.2, 3.2)
+
+[node name="ExitDoor" parent="." instance=ExtResource("44_u6w62")]
+position = Vector2(1175, 407)
+scale = Vector2(0.42, 0.34)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1177, 409)
+shape = SubResource("RectangleShape2D_u6w62")
+
 [connection signal="area_entered" from="Pan" to="CharacterBody2D" method="_on_pickup_range_area_entered"]
 [connection signal="area_exited" from="Pan" to="CharacterBody2D" method="_on_pickup_range_area_exited"]
 [connection signal="area_entered" from="Oven" to="CharacterBody2D" method="_on_pickup_range_area_entered"]
@@ -1848,3 +1847,7 @@ rotation = 1.64934
 [connection signal="area_exited" from="Socks/ItemDrop6" to="CharacterBody2D" method="_on_item_drop_area_exited"]
 [connection signal="area_entered" from="Socks/ItemDrop7" to="CharacterBody2D" method="_on_item_drop_area_entered"]
 [connection signal="area_exited" from="Socks/ItemDrop7" to="CharacterBody2D" method="_on_item_drop_area_exited"]
+[connection signal="area_entered" from="Table" to="CharacterBody2D" method="_on_pickup_range_area_entered"]
+[connection signal="area_exited" from="Table" to="CharacterBody2D" method="_on_pickup_range_area_exited"]
+[connection signal="area_entered" from="ExitDoor" to="CharacterBody2D" method="_on_pickup_range_area_entered"]
+[connection signal="area_exited" from="ExitDoor" to="CharacterBody2D" method="_on_pickup_range_area_exited"]

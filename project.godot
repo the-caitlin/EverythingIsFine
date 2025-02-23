@@ -12,8 +12,12 @@ config_version=5
 
 config/name="Everything Is Fine"
 run/main_scene="res://scenes/university.tscn"
-config/features=PackedStringArray("4.3", "Mobile")
+config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SceneTransition="*res://scenes/scene_transition.gd"
 
 [input]
 
