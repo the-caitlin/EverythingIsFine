@@ -293,7 +293,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ejtxo"]
-radius = 6.1
+radius = 7.0
 height = 20.6
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2brh"]
@@ -305,16 +305,19 @@ scale = Vector2(0.1, 0.1)
 script = ExtResource("1_pft0a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 5
 texture_filter = 1
 position = Vector2(-11, -96)
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_ttgnl")
-animation = &"up idle"
+animation = &"front idle"
+frame = 2
+frame_progress = 0.313829
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-z_index = 1
-position = Vector2(-1, -12)
-scale = Vector2(10, 10)
+z_index = 5
+position = Vector2(-2.34, -23.98)
+scale = Vector2(9, 9.13)
 shape = SubResource("CapsuleShape2D_ejtxo")
 
 [node name="Camera2D" type="Camera2D" parent="."]
