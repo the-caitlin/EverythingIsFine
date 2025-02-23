@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://dc5f8uqwfqlhr"]
+[gd_scene load_steps=36 format=4 uid="uid://dc5f8uqwfqlhr"]
 
 [ext_resource type="Texture2D" uid="uid://8vgs2iswiodc" path="res://assets/ApartmentStuff/woodenfloor.png" id="1_acvur"]
 [ext_resource type="Texture2D" uid="uid://un0fbrsg1flu" path="res://assets/ApartmentStuff/floortiles (1).png" id="2_ombsg"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://8n2ut2jy1wmo" path="res://assets/ApartmentStuff/Sunrise.png" id="14_uhspm"]
 [ext_resource type="Texture2D" uid="uid://dugabpovwu8yk" path="res://assets/ApartmentStuff/tonal-gray-checkerboard-seamless-repeating-vector-54543375.jpg" id="15_g0vqg"]
 [ext_resource type="Texture2D" uid="uid://dee4ecimo8aqo" path="res://assets/ApartmentStuff/Couch.png" id="16_5oduc"]
+[ext_resource type="Texture2D" uid="uid://dytvx2324ph2a" path="res://assets/interactables/water_bowl.png" id="16_sg05v"]
 [ext_resource type="PackedScene" uid="uid://cd4brui1vi5on" path="res://scenes/character_body_2d.tscn" id="17_ti2ko"]
 [ext_resource type="PackedScene" uid="uid://bjb4ii47a7nfh" path="res://scenes/itemDrop.tscn" id="18_ec3w0"]
 [ext_resource type="PackedScene" uid="uid://d2wmhqg8wi45x" path="res://scenes/oven.tscn" id="19_5eoqb"]
@@ -22,6 +23,9 @@
 [ext_resource type="PackedScene" uid="uid://cptroa1r00c1k" path="res://scenes/fridge.tscn" id="21_anoxf"]
 [ext_resource type="PackedScene" uid="uid://bkalum4wullkm" path="res://scenes/PanDrop.tscn" id="21_pf7t0"]
 [ext_resource type="PackedScene" uid="uid://ch2s42sld2xnx" path="res://scenes/plateDrop.tscn" id="22_anoxf"]
+[ext_resource type="PackedScene" uid="uid://cx562uk28xin7" path="res://scenes/DogBowlFilled.tscn" id="24_2qo02"]
+[ext_resource type="PackedScene" uid="uid://dhyfkpe45w4ix" path="res://scenes/DogBowl.tscn" id="25_o4vcr"]
+[ext_resource type="PackedScene" uid="uid://b6ia5v2xupfij" path="res://scenes/DogFood.tscn" id="26_o4vcr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iemlq"]
 texture = ExtResource("1_acvur")
@@ -1199,6 +1203,11 @@ position = Vector2(980, 443)
 scale = Vector2(2.41484, 2.14216)
 texture = ExtResource("16_5oduc")
 
+[node name="Sprite2D5" type="Sprite2D" parent="Node2D"]
+position = Vector2(345, 411)
+scale = Vector2(1.65, 1.65)
+texture = ExtResource("16_sg05v")
+
 [node name="ItemDrop" parent="." instance=ExtResource("18_ec3w0")]
 z_index = 1
 position = Vector2(1142, 181)
@@ -1208,7 +1217,7 @@ position = Vector2(834, 42)
 scale = Vector2(2.165, 2.165)
 
 [node name="Pan" parent="." instance=ExtResource("20_5eoqb")]
-position = Vector2(365, 394)
+position = Vector2(391, 546)
 
 [node name="Oven" parent="." instance=ExtResource("19_5eoqb")]
 position = Vector2(111, 567)
@@ -1225,7 +1234,21 @@ position = Vector2(99, 374)
 rotation = -1.5708
 
 [node name="PlateDrop" parent="." instance=ExtResource("22_anoxf")]
+position = Vector2(140, -54)
 scale = Vector2(0.17, 0.17)
+
+[node name="DogBowlFilled" parent="." instance=ExtResource("24_2qo02")]
+z_index = 0
+position = Vector2(390, 409)
+scale = Vector2(1.61, 1.61)
+
+[node name="dog_bowl" parent="." groups=["dog_bowl"] instance=ExtResource("25_o4vcr")]
+position = Vector2(390, 409)
+scale = Vector2(1.61, 1.61)
+
+[node name="DogFood" parent="." groups=["dog_food"] instance=ExtResource("26_o4vcr")]
+position = Vector2(195, 622)
+scale = Vector2(1.555, 1.555)
 
 [connection signal="area_entered" from="ItemDrop" to="CharacterBody2D" method="_on_item_drop_area_entered"]
 [connection signal="area_exited" from="ItemDrop" to="CharacterBody2D" method="_on_item_drop_area_exited"]
@@ -1235,3 +1258,7 @@ scale = Vector2(0.17, 0.17)
 [connection signal="area_exited" from="Oven" to="CharacterBody2D" method="_on_pickup_range_area_exited"]
 [connection signal="area_entered" from="Fridge" to="CharacterBody2D" method="_on_pickup_range_area_entered"]
 [connection signal="area_exited" from="Fridge" to="CharacterBody2D" method="_on_pickup_range_area_exited"]
+[connection signal="area_entered" from="dog_bowl" to="CharacterBody2D" method="_on_pickup_range_area_entered"]
+[connection signal="area_exited" from="dog_bowl" to="CharacterBody2D" method="_on_pickup_range_area_exited"]
+[connection signal="area_entered" from="DogFood" to="CharacterBody2D" method="_on_pickup_range_area_entered"]
+[connection signal="area_exited" from="DogFood" to="CharacterBody2D" method="_on_pickup_range_area_exited"]
