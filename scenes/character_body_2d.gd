@@ -13,6 +13,7 @@ extends CharacterBody2D
 @onready var item_dog_food = $item_dog_food
 @onready var item_plate = $item_plate
 @onready var item_backpack = $item_backpack
+@onready var to_do_list = $to_do_list
 
 @onready var sprite = $AnimatedSprite2D
 @onready var oven = $oven
@@ -51,7 +52,9 @@ var has_filled_bowl: bool = false
 var has_putaway_socks: bool = false 
 var has_eaten_eggs: bool = false 
 var socks_putaway: int = 0
+var looking_at_list: bool = false
 
+var game_paused: bool = false
 
 func _ready(): 
 	item_spr.hide()
@@ -60,13 +63,16 @@ func _ready():
 	item_plate.hide()
 	item_dog_food.hide()
 	item_backpack.hide()
+	to_do_list.hide()
 
 func _physics_process(_delta):
 	# Get direction based on input
 	var direction = Input.get_vector("left", "right", "up", "down")
 
 	# Check if the Shift key is held for sprinting
-	if Input.is_key_pressed(KEY_SHIFT):
+	if game_paused:
+		current_speed = 0.00
+	elif Input.is_key_pressed(KEY_SHIFT):
 		current_speed = lerp(current_speed, sprint_speed, acceleration * _delta)  # Gradually increase speed to sprint
 	else:
 		current_speed = lerp(current_speed, speed, acceleration * _delta)  # Gradually decrease speed to walk
@@ -232,37 +238,57 @@ func _on_pickup_range_area_exited(area: Area2D) -> void:
 	
 
 func _input(event):
-	if event.is_action_pressed("interact"):
-		if carrying_sock: 
-			if near_basket:
-				erase_item()
+	if !game_paused:	
+		if event.is_action_pressed("interact"):
+			if carrying_sock: 
+				if near_basket:
+					erase_item()
+				else:
+					drop_item()
+			elif near_fridge: 
+				if !carrying_egg:
+					item_egg.show()
+					carrying_egg = true 
+				else: 
+					erase_egg()
+			elif near_oven:
+				if pan_on_oven: 
+					if carrying_egg: 
+						cook_egg()
+				elif carrying_pan:
+					place_pan()
+			elif near_table:
+				if carrying_plate:
+					place_plate()
+			elif carrying_dog_food: 
+				if near_dog_bowl:
+					pickup_item(items_in_range.pick_random())
+				else:
+					drop_food()
+			elif near_exit_door:
+				print("trying to exit")
+				if has_putaway_socks and has_eaten_eggs and has_filled_bowl:
+					print("exiting")
+					exit_sequence()
 			else:
-				drop_item()
-		elif near_fridge: 
-			if !carrying_egg:
-				item_egg.show()
-				carrying_egg = true 
+				if !items_in_range.is_empty():
+					pickup_item(items_in_range.pick_random())
+		elif event.is_action_pressed("toDoList"):
+			if looking_at_list: 
+				to_do_list.hide()
+				looking_at_list = false
+				game_paused = false
 			else: 
-				erase_egg()
-		elif near_oven:
-			if pan_on_oven: 
-				if carrying_egg: 
-					cook_egg()
-			elif carrying_pan:
-				place_pan()
-		elif near_table:
-			if carrying_plate:
-				place_plate()
-		elif carrying_dog_food: 
-			if near_dog_bowl:
-				pickup_item(items_in_range.pick_random())
-			else:
-				drop_food()
-		elif near_exit_door:
-			print("trying to exit")
-			if has_putaway_socks and has_eaten_eggs and has_filled_bowl:
-				print("exiting")
-				exit_sequence()
-		else:
-			if !items_in_range.is_empty():
-				pickup_item(items_in_range.pick_random())
+				to_do_list.show()
+				game_paused = true
+				looking_at_list = true
+	else: 			
+		if event.is_action_pressed("toDoList"):
+			if looking_at_list: 
+				to_do_list.hide()
+				game_paused = false
+				looking_at_list = false
+			else: 
+				to_do_list.show()
+				game_paused = true
+				looking_at_list = true
