@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cb3iccbavdp3g"]
+
+[ext_resource type="Script" path="res://sign_3.gd" id="1_yxw5u"]
+[ext_resource type="Texture2D" uid="uid://8kftrgyycpn2" path="res://assets/tilemaps/Tilemap/tilemap.png" id="2_uuolx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqqcm"]
+size = Vector2(14, 3)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_70ygf"]
+radius = 91.022
+
+[node name="sign3" type="StaticBody2D"]
+script = ExtResource("1_yxw5u")
+
+[node name="sign" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_uuolx")
+hframes = 27
+vframes = 18
+frame = 250
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_qqqcm")
+
+[node name="chatDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chatDetection"]
+shape = SubResource("CircleShape2D_70ygf")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 30.0
+autostart = true
+
+[connection signal="body_entered" from="chatDetection" to="." method="_on_chat_detection_body_entered"]
+[connection signal="body_exited" from="chatDetection" to="." method="_on_chat_detection_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

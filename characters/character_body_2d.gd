@@ -38,5 +38,6 @@ func _physics_process(_delta):
 	elif velocity.x < 0:
 		sprite.flip_h = true
 		
-
+func player():
+	pass
 	
