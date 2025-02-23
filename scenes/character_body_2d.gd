@@ -293,3 +293,6 @@ func _input(event):
 				to_do_list.show()
 				game_paused = true
 				looking_at_list = true
+
+func player():
+	pass
