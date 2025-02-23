@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cd4brui1vi5on"]
+[gd_scene load_steps=47 format=3 uid="uid://cd4brui1vi5on"]
 
 [ext_resource type="Script" uid="uid://8jbrm3bws6va" path="res://scenes/character_body_2d.gd" id="1_pft0a"]
 [ext_resource type="Texture2D" uid="uid://nq5qibf5ybsa" path="res://assets/sprites/characters/player.png" id="2_xu1v0"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bdbbl16avqd8n" path="res://assets/interactables/pan.png" id="4_4vejd"]
 [ext_resource type="Texture2D" uid="uid://kngj4d46a0u3" path="res://assets/interactables/egg (2).png" id="5_ws0vm"]
 [ext_resource type="Texture2D" uid="uid://bs0hkn5b2l0na" path="res://assets/interactables/plate_with_egg.png" id="6_rhr3r"]
+[ext_resource type="Texture2D" uid="uid://fgtcp3defoam" path="res://assets/interactables/dogFood.png" id="7_t53lx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e1e3n"]
 atlas = ExtResource("2_xu1v0")
@@ -334,25 +335,34 @@ scale = Vector2(14.28, 14.28)
 shape = SubResource("CircleShape2D_g2brh")
 
 [node name="item_spr" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 5
 position = Vector2(-60, 30)
 scale = Vector2(0.34375, 0.447917)
 texture = ExtResource("3_dn4c7")
 
 [node name="item_pan" type="Sprite2D" parent="."]
+z_index = 5
 position = Vector2(-60, 30)
 scale = Vector2(0.46, 0.46)
 texture = ExtResource("4_4vejd")
 
 [node name="item_egg" type="Sprite2D" parent="."]
+z_index = 5
 position = Vector2(-60, 20)
 scale = Vector2(2.6875, 2.375)
 texture = ExtResource("5_ws0vm")
 
 [node name="item_plate" type="Sprite2D" parent="."]
+z_index = 5
 position = Vector2(-60, 30)
 scale = Vector2(0.46, 0.46)
 texture = ExtResource("6_rhr3r")
+
+[node name="item_dog_food" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(-70, 30)
+scale = Vector2(3.845, 3.845)
+texture = ExtResource("7_t53lx")
 
 [connection signal="area_entered" from="pickup_range" to="." method="_on_pickup_range_area_entered"]
 [connection signal="area_exited" from="pickup_range" to="." method="_on_pickup_range_area_exited"]
