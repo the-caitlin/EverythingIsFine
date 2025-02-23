@@ -2,35 +2,38 @@ extends CharacterBody2D
 
 #references
 @onready var item_drop = load("res://scenes/itemDrop.tscn")
+@onready var item_plate_drop = load("res://scenes/plateDrop.tscn")
+@onready var pan_drop = load("res://scenes/pan.tscn")
+@onready var dog_bowl_filled = load("res://scenes/DogBowlFilled.tscn")
+@onready var dog_food_drop = load("res://scenes/DogFoodDrop.tscn")
+
 @onready var item_spr = $item_spr 
 @onready var item_pan = $item_pan
 @onready var item_egg = $item_egg
+@onready var item_dog_food = $item_dog_food
+@onready var item_plate = $item_plate
 
 @onready var sprite = $AnimatedSprite2D
 @onready var oven = $oven
 
-@onready var item_plate = $item_plate
-@onready var item_plate_drop = load("res://scenes/plateDrop.tscn")
-@onready var pan_drop = load("res://scenes/pan.tscn")
 @onready var dog_bowl = $dog_bowl
-@onready var dog_bowl_filled = load("res://scenes/DogBowlFilled.tscn")
-@onready var item_dog_food = $item_dog_food
-@onready var dog_food_drop = load("res://scenes/DogFoodDrop.tscn")
+
+
 
 var speed = 100.0
 var sprint_speed = 150.0
 var acceleration = 10.0  
 var current_speed = speed  
 var drop_pos: Vector2
+
 var items_in_range: Array = []
+
 var near_basket: bool = false
 var near_pan: bool = false
 var near_oven: bool = false
 var near_fridge: bool = false
 var pan_on_oven: bool = false
 var near_dog_bowl: bool = false
-
-
 var near_dog_food = false
 var near_plate = false
 var near_sock = false
@@ -105,10 +108,8 @@ func pickup_item(item: Area2D):
 		filled_bowl.position = Vector2(390, 409)
 		filled_bowl.scale = Vector2(1.61, 1.61)
 		get_parent().add_child(filled_bowl)
+	items_in_range.erase(item)
 		
-		
-		
-	
 func drop_item():
 	item_spr.hide()
 	var item = item_drop.instantiate()
@@ -133,6 +134,7 @@ func cook_egg():
 func place_pan(): 
 	item_pan.hide()
 	carrying_pan = false
+	pan_on_oven = true
 	var pan = pan_drop.instantiate()
 	pan.position = Vector2(89, 557)
 	pan.rotate(-90)
@@ -140,10 +142,11 @@ func place_pan():
 	
 func place_plate(): 
 	item_plate.hide()
-	carrying_plate = false
 	var plate = item_plate_drop.instantiate()
 	plate.position = position + drop_pos
+	plate.scale = Vector2(.17, .17)
 	get_parent().add_child(plate)
+	carrying_plate = false
 	
 func fill_bowl():
 	dog_bowl.queue_free()
@@ -225,7 +228,6 @@ func _input(event):
 					cook_egg()
 			elif carrying_pan:
 				place_pan()
-				pan_on_oven = true
 		elif carrying_plate: 
 			place_plate()
 		elif carrying_dog_food: 
