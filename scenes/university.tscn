@@ -1,4 +1,4 @@
-
+[gd_scene load_steps=14 format=3 uid="uid://c00563677o8mr"]
 
 [ext_resource type="Texture2D" uid="uid://c0jvfm8kaq6s0" path="res://assets/tilemaps/Tilemap/tilemap_packed.png" id="1_0q2qk"]
 [ext_resource type="Shader" path="res://shader/shockwave.gdshader" id="1_4h3nl"]
@@ -13,7 +13,7 @@
 shader = ExtResource("1_4h3nl")
 shader_parameter/strength = 0.049
 shader_parameter/center = Vector2(0.5, 0.5)
-shader_parameter/radius = 0.138
+shader_parameter/radius = 0.188
 shader_parameter/aberration = 0.425
 shader_parameter/width = 0.04
 shader_parameter/feather = 0.135
@@ -759,13 +759,12 @@ sources/3 = SubResource("TileSetAtlasSource_6e17u")
 [node name="Node2D" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 z_index = 15
 material = SubResource("ShaderMaterial_h25cg")
-offset_left = 75.0
-offset_top = -83.0
-offset_right = 256.0
-offset_bottom = 42.0
+offset_left = 68.0
+offset_top = -91.0
+offset_right = 249.0
+offset_bottom = 34.0
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
