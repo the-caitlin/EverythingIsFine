@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://cd4brui1vi5on"]
+[gd_scene load_steps=49 format=3 uid="uid://cd4brui1vi5on"]
 
 [ext_resource type="Script" uid="uid://8jbrm3bws6va" path="res://scenes/character_body_2d.gd" id="1_pft0a"]
 [ext_resource type="Texture2D" uid="uid://nq5qibf5ybsa" path="res://assets/sprites/characters/player.png" id="2_xu1v0"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bs0hkn5b2l0na" path="res://assets/interactables/plate_with_egg.png" id="6_rhr3r"]
 [ext_resource type="Texture2D" uid="uid://fgtcp3defoam" path="res://assets/interactables/dogFood.png" id="7_t53lx"]
 [ext_resource type="Texture2D" uid="uid://dafksf6vlit02" path="res://assets/interactables/Backpack.png" id="8_yi2kj"]
+[ext_resource type="Texture2D" uid="uid://06c3sal5fipe" path="res://assets/interactables/toDoList.png" id="9_cibgq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e1e3n"]
 atlas = ExtResource("2_xu1v0")
@@ -370,6 +371,12 @@ z_index = 5
 position = Vector2(-60, 30)
 scale = Vector2(5.51, 5.51)
 texture = ExtResource("8_yi2kj")
+
+[node name="to_do_list" type="Sprite2D" parent="."]
+z_index = 15
+position = Vector2(0, -7.62939e-06)
+scale = Vector2(0.266667, 0.24)
+texture = ExtResource("9_cibgq")
 
 [connection signal="area_entered" from="pickup_range" to="." method="_on_pickup_range_area_entered"]
 [connection signal="area_exited" from="pickup_range" to="." method="_on_pickup_range_area_exited"]
