@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://1nvj6inpyyx4"]
+
+[ext_resource type="Texture2D" uid="uid://400riqc0d5ji" path="res://assets/interactables/LaundryBasket.png" id="1_lgsw4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e48ge"]
+size = Vector2(23, 16)
+
+[node name="ItemErase" type="Area2D" groups=["basket"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -2)
+shape = SubResource("RectangleShape2D_e48ge")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lgsw4")

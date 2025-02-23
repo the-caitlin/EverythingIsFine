@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch2s42sld2xnx"]
+
+[ext_resource type="Texture2D" uid="uid://bs0hkn5b2l0na" path="res://assets/interactables/plate_with_egg.png" id="1_86yot"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2v571"]
+
+[node name="PlateDrop" type="Area2D" groups=["item_plate_drop"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_86yot")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(11.01, 11.01)
+shape = SubResource("CircleShape2D_2v571")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cptroa1r00c1k"]
+
+[ext_resource type="Texture2D" uid="uid://qdpimq24fp8e" path="res://assets/ApartmentStuff/Heladera.png" id="1_ipvyg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sp1gv"]
+size = Vector2(10.5116, 20)
+
+[node name="Fridge" type="Area2D" groups=["fridge"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.500002, 0)
+scale = Vector2(7.135, 7.135)
+shape = SubResource("RectangleShape2D_sp1gv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ipvyg")

@@ -1,7 +1,11 @@
-[gd_scene load_steps=41 format=3 uid="uid://cd4brui1vi5on"]
+[gd_scene load_steps=46 format=3 uid="uid://cd4brui1vi5on"]
 
-[ext_resource type="Script" path="res://characters/character_body_2d.gd" id="1_pft0a"]
+[ext_resource type="Script" uid="uid://8jbrm3bws6va" path="res://scenes/character_body_2d.gd" id="1_pft0a"]
 [ext_resource type="Texture2D" uid="uid://nq5qibf5ybsa" path="res://assets/sprites/characters/player.png" id="2_xu1v0"]
+[ext_resource type="Texture2D" uid="uid://bipquh6yjm4v" path="res://assets/interactables/sock.png" id="3_dn4c7"]
+[ext_resource type="Texture2D" uid="uid://bdbbl16avqd8n" path="res://assets/interactables/pan.png" id="4_4vejd"]
+[ext_resource type="Texture2D" uid="uid://kngj4d46a0u3" path="res://assets/interactables/egg (2).png" id="5_ws0vm"]
+[ext_resource type="Texture2D" uid="uid://bs0hkn5b2l0na" path="res://assets/interactables/plate_with_egg.png" id="6_rhr3r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e1e3n"]
 atlas = ExtResource("2_xu1v0")
@@ -292,7 +296,11 @@ animations = [{
 radius = 7.0
 height = 20.6
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2brh"]
+radius = 9.37317
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
+z_index = 1
 scale = Vector2(0.1, 0.1)
 script = ExtResource("1_pft0a")
 
@@ -315,3 +323,36 @@ shape = SubResource("CapsuleShape2D_ejtxo")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(6, 6)
 position_smoothing_enabled = true
+
+[node name="pickup_range" type="Area2D" parent="."]
+z_index = 1
+position = Vector2(6369.52, 3959.33)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickup_range"]
+position = Vector2(-6369.52, -3959.33)
+scale = Vector2(14.28, 14.28)
+shape = SubResource("CircleShape2D_g2brh")
+
+[node name="item_spr" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-60, 30)
+scale = Vector2(0.34375, 0.447917)
+texture = ExtResource("3_dn4c7")
+
+[node name="item_pan" type="Sprite2D" parent="."]
+position = Vector2(-60, 30)
+scale = Vector2(0.46, 0.46)
+texture = ExtResource("4_4vejd")
+
+[node name="item_egg" type="Sprite2D" parent="."]
+position = Vector2(-60, 20)
+scale = Vector2(2.6875, 2.375)
+texture = ExtResource("5_ws0vm")
+
+[node name="item_plate" type="Sprite2D" parent="."]
+position = Vector2(-60, 30)
+scale = Vector2(0.46, 0.46)
+texture = ExtResource("6_rhr3r")
+
+[connection signal="area_entered" from="pickup_range" to="." method="_on_pickup_range_area_entered"]
+[connection signal="area_exited" from="pickup_range" to="." method="_on_pickup_range_area_exited"]
