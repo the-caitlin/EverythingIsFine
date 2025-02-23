@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8nxitfp2m3b1"]
+
+[ext_resource type="Texture2D" uid="uid://b02vq6cw4fikb" path="res://assets/RetroFurniture/tablefr.png" id="1_02ppr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eotx8"]
+size = Vector2(24, 21)
+
+[node name="Table" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["table"]]
+position = Vector2(3, -11.5)
+shape = SubResource("RectangleShape2D_eotx8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_02ppr")

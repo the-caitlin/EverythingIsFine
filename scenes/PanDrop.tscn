@@ -4,9 +4,9 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lgf8i"]
 
-[node name="PanDrop" type="Area2D" groups=["pan_drop"]]
+[node name="PanDrop" type="Area2D"]
 z_index = 2
-scale = Vector2(1.43, 1.43)
+scale = Vector2(0.98, 0.98)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.295, 0.295)

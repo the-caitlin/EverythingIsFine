@@ -4,7 +4,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3b5cr"]
 
-[node name="DogFood" type="Area2D"]
+[node name="DogFood" type="Area2D" groups=["dog_food"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_euan2")

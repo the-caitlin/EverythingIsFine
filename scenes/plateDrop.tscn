@@ -5,6 +5,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_2v571"]
 
 [node name="PlateDrop" type="Area2D" groups=["item_plate_drop"]]
+z_index = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_86yot")
